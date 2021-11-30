@@ -97,7 +97,8 @@ const database = {
         id: 10,
         name: "Panda",
         walkerId: 7
-    }]
+    }],
+    cities: []
 }
 
 export const getWalkers = () => {
@@ -108,3 +109,6 @@ export const getPets = () => {
     return database.pets.map(pet => ({...pet}))
 }
 
+export const getCities = () => {
+    return [...database.cities];
+}
