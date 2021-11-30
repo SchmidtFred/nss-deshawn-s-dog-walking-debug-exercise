@@ -1,13 +1,14 @@
-import { getWalkers } from "./database.js";
+import { getWalkers, getCities } from "./database.js";
 
 document.addEventListener("click", (clickEvent) => {
 	const itemClicked = clickEvent.target;
 	if (itemClicked.id.startsWith("walker")) {
+		const cities = getCities();
 		const [, walkerId] = itemClicked.id.split("--");
 
 		for (const walker of walkers) {
 			if (walker.id === parseInt(walkerId)) {
-				window.alert(`${walker.name} services ${walker.city}`);
+				window.alert(`${walker.name} services ${cities.find(item => item.id === walker.cityId).name}`);
 			}
 		}
 	}
